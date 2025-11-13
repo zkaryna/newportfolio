@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Karyna Zakabluk — Full-stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Karyna Zakabluk — full-stack developer specializing in fast, accessible web applications using React, Python, and SQL."/>
+  <meta property="og:title" content="Karyna Zakabluk — Developer Portfolio">
+  <meta property="og:description" content="Front-end & Back-end developer creating high-performance, user-centered web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="photo.jpg">
+  <link rel="icon"
+  href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <defs>
+      <clipPath id='round'>
+        <rect width='100' height='100' rx='20'/>
+      </clipPath>
+    </defs>
+    <g clip-path='url(%23round)'>
+      <rect width='100' height='50' fill='%23005BBB'/>
+      <rect width='100' height='50' y='50' fill='%23FFD500'/>
+    </g>
+</svg>#v8">
+  
+  <style>
+    /* COLORS & FONTS */
+    :root{
+      --bg:#0f1114;
+      --card:#111418;
+      --muted:#a7b0b8;
+      --accent:#00c4b4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --mono:'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box;transition:all .3s ease;}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:var(--mono);
+      background:linear-gradient(180deg,var(--bg) 0%,#0b0c0d 100%);
+      color:#e6eef3;line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:60px;
+    }
+    a{color:var(--accent);text-decoration:none}
+    h1,h2,h3{letter-spacing:0.4px;}
+    h1{font-size:30px;margin:0;}
+    h2{font-size:20px;margin:0;}
+    p{color:var(--muted);}
+
+    /* HEADER */
+    header{
+      position:sticky;top:12px;z-index:30;
+      display:flex;justify-content:space-between;align-items:center;
+      margin:18px;padding:10px 18px;
+      backdrop-filter:blur(6px);
+      border-radius:12px;
+      background:rgba(17,20,24,0.7);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#5ef1d8);
+      border-radius:10px;display:grid;place-items:center;
+      font-weight:700;color:#071017;font-size:22px;}
+    nav{display:flex;gap:14px;align-items:center}
+    .nav-link{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600;font-size:14px}
+    .nav-link:hover{background:var(--glass);color:var(--accent);transform:scale(1.08)}
+
+    /* HERO */
+    .container{max-width:1100px;margin:36px auto;padding:0 20px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
+    @media(max-width:880px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      padding:26px;border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .tag{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);font-weight:600}
+    .profile-visual img{width:130px;height:130px;border-radius:50%;object-fit:cover;margin-top:18px;box-shadow:0 0 18px rgba(0,196,180,0.25);}
+
+    /* PROJECTS */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+    .project-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 12px 30px rgba(2,6,23,0.6)}
+
+    /* VIDEO PROJECTS — make both videos similar size */
+/* VIDEO PROJECTS — improved version */
+.project-card video {
+    display: block;
+    width: 100%;
+    height: 300px; /* однакова висота для всіх */
+    object-fit: contain; /* зберігає пропорції, не обрізає */
+    background: #000; /* чорне тло навколо відео */
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+
+  .project-card iframe {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  
+  
+  /* для вертикальних відео — трохи інше співвідношення */
+  .project-card video.vertical {
+    aspect-ratio: 4 / 5;
+  }
+  
+
+    /* EXPERIENCE */
+    .timeline{border-left:2px solid var(--accent);margin-top:16px;padding-left:18px;}
+    .timeline-item{margin-bottom:14px;}
+    .timeline-item h3{margin:0;font-size:16px}
+    .timeline-item span{color:var(--muted);font-size:13px}
+
+    /* FOOTER */
+    footer{margin-top:40px;padding:24px 0;color:var(--muted);text-align:center;font-size:13px;}
+
+    /* BUTTONS */
+    .cta, button, .pill{transition:transform .25s ease, box-shadow .25s ease;}
+    .cta:hover, button:hover, .pill:hover{transform:scale(1.06);box-shadow:0 0 12px rgba(0,196,180,0.25);}
+
+    /* SEND BUTTON */
+    .send-btn {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #071017;
+      background: linear-gradient(135deg, var(--accent), #5ef1d8);
+      box-shadow: 0 4px 18px rgba(0,196,180,0.25);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .send-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,196,180,0.35);
+    }
+    .send-btn:active {
+      transform: scale(0.98);
+      box-shadow: 0 3px 10px rgba(0,196,180,0.25);
+    }
+
+    /* ANIMATION */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+
+<body>
+  <header class="card">
+    <div class="brand">
+      <div class="logo">K</div>
+      <div>
+        <div style="font-weight:700">Karyna Zakabluk</div>
+        <div style="font-size:12px;color:var(--muted)">Full-stack Developer</div>
+      </div>
+    </div>
+    <nav>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card reveal" id="about">
+        <h1>Hi, I'm Karyna 👋</h1>
+        <p>I'm a full-stack developer passionate about creating fast, accessible and visually beautiful web applications. I work with <strong>React, Python, SQL,</strong> and modern front-end tools.</p>
+        <div style="margin-top:16px;">
+          <h2>Tech Stack</h2>
+          <div class="skills">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <a href="CV_KarynaZakabluk.pdf" target="_blank" class="cta" style="padding:10px 18px;border-radius:10px;border:1px solid var(--accent)">Download CV</a>
+        </div>
+      </div>
+
+      <aside class="card profile-visual reveal" style="text-align:center">
+        <img src="photo.jpg" alt="Karyna Zakabluk photo">
+        <h3 style="margin-top:10px;">Performance · UX · Clean Code</h3>
+        <p>🇺🇦 Based in Norway · Available remotely</p>
+      </aside>
+    </section>
+
+    <!-- EXPERIENCE -->
+     <br>
+    <section id="experience" class="reveal">
+      <div class="section-title"><h2>Experience</h2></div>
+      <br>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Freelance Developer</h3>
+            <span>2023 — Present</span>
+            <p>Built responsive websites for small businesses and startups using React, Python (Flask), and PostgreSQL.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Front-end Developer Intern — SoftServe</h3>
+            <span>2022 — 2023</span>
+            <p>Created internal dashboards and optimized page loading times by 40% using lazy loading and caching techniques.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Student Projects — University of Oslo</h3>
+            <span>2020 — 2022</span>
+            <p>Worked on academic full-stack projects focusing on user experience and accessibility compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+        <br>
+        <br>
+        <div class="section-title"><h2>Projects</h2></div>
+        <br>
+        <br>
+        <div class="projects-grid">
+          <article class="card project-card">
+            <h3>Trip360 — Interactive Travel Site</h3>
+            <p>React-free demo site with adaptive layout and interactive map features.</p>
+            <p style="font-size:13px;color:var(--muted)">Tech: HTML · JS · CSS</p>
+            <div style="margin-top:10px;">
+              <a class="pill" href="https://zkaryna.github.io/trip360/" target="_blank">Live</a>
+              <a class="pill" href="https://github.com/zkaryna/trip360" target="_blank">Repo</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>Old Portfolio — Designer Showcase</h3>
+            <p>Previous personal portfolio focusing on minimalist design and smooth UX transitions.</p>
+            <p style="font-size:13px;color:var(--muted)">Tech: HTML · CSS · JS</p>
+            <div style="margin-top:10px;">
+              <a class="pill" href="https://zkaryna.github.io/portfolio/" target="_blank">Live</a>
+              <a class="pill" href="https://github.com/zkaryna/portfolio" target="_blank">Repo</a>
+            </div>
+          </article>
+          
+  
+          <article class="card project-card">
+            <h3>Portfolio Site (this)</h3>
+            <p>Custom-built personal portfolio site focused on smooth UI and accessibility.</p>
+            <p style="font-size:13px;color:var(--muted)">Tech: HTML · CSS · JS</p>
+            <a class="pill" href="#" target="_blank">Source</a>
+          </article>
+  
+
+          <article class="card project-card">
+            <h3>Lost in the forest 🎲</h3>
+            <p><p>Text‑based forest adventure game where your choices determine if you escape the woods or get lost.</p>
+        </p>
+            <p style="font-size:13px;color:var(--muted)">Tech: Python · CLI · ANSI Colors</p>
+            <div style="margin-top:10px;">
+                <a class="pill" href="https://zkaryna.github.io/Lost-in-the-forest/" target="_blank">Live</a>
+              <a class="pill" href="https://github.com/Lost-in-the-forest" target="_blank">Repo</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <h3>Analytics Dashboard</h3>
+            <p>Back-end + front-end project visualizing live data with Python and Chart.js.</p>
+            <p style="font-size:13px;color:var(--muted)">Tech: Python · SQL · JS</p>
+            <a class="pill" href="#" target="_blank">Coming soon</a>
+          </article>
+        </div>
+      </section>
+       <!-- VIDEO PROJECTS -->
+<section id="videos" class="reveal" style="margin-top:50px;">
+    <div class="section-title"><h2>Video Projects</h2></div>
+    <br>
+    <br>
+    <div class="projects-grid">
+  
+<article class="card project-card">
+  <h3>Matcha — Mini Video Project</h3>
+
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+    <iframe src="https://www.youtube.com/embed/AKUi9DyK1yc"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    </iframe>
+  </div>
+
+  <p style="font-size:13px;color:var(--muted)"></p>
+</article>
+
+  
+      <article class="card project-card">
+        <h3>10 places to visit in Norway — Travel Video</h3>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+            <iframe src="https://www.youtube.com/embed/KhGJyzK3UVs" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;">
+            </iframe>
+          </div>
+          
+
+        <p style="font-size:13px;color:var(--muted)">
+          
+        </p>
+      </article>
+  
+    </div>
+  </section>
+  
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+        <br>
+      <div class="section-title"><h2>Contact</h2></div>
+      <br>
+      <div class="card" style="padding:40px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,196,180,0.03)); border:1px solid rgba(255,255,255,0.06)">
+        <p style="max-width:600px; color:var(--muted);">
+ 
+          Feel free to reach out — I'm open to collaborations, freelance projects, and full-time opportunities.
+          <br>
+          <br>
+          Let's build something amazing together!
+        </p>
+
+        <form id="contactForm" style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
+          <div>
+            <label class="muted-small">Your email</label>
+            <br>
+            <br>
+            
+            <input type="email" placeholder="yourmail@gmail.com" required style="width:100%; padding:12px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); color:inherit;">
+          </div>
+          <div>
+            <label class="muted-small">Message</label>
+            <br>
+            <br>
+          
+            <textarea rows="5" placeholder="Hi Karyna, I’d like to discuss..." style="width:100%; padding:12px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); color:inherit; resize:none;"></textarea>
+          </div>
+
+          <button class="send-btn" type="submit">
+            <span>Send Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L20 4L14 12L20 20L4 12Z" fill="currentColor"/>
+            </svg>
+          </button>
+          <div id="formStatus" style="font-size:13px; color:var(--muted);"></div>
+        </form>
+
+        <div style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.05); padding-top:20px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;">
+          <div>
+            <div style="font-size:14px; color:var(--muted); margin-bottom:6px;">Direct contacts:</div>
+            <p style="margin:4px 0;">📧 <strong style="color:var(--accent)">karynazakabluk@gmail.com</strong></p>
+            <p style="margin:4px 0;">📞 <strong style="color:var(--accent)">+47 967 46 689</strong></p>
+          </div>
+
+          <div class="socials" style="display:flex; gap:14px;">
+            <a href="https://github.com/zkaryna" target="_blank" title="GitHub" style="color:var(--muted);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2.24c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.34-1.79-1.34-1.79-1.1-.76.08-.74.08-.74 1.22.09 1.87 1.26 1.87 1.26 1.09 1.87 2.87 1.33 3.57 1.02.11-.79.43-1.33.78-1.63-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.56.12-3.26 0 0 1.01-.33 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.56 3.3-1.23 3.3-1.23.66 1.7.24 2.95.12 3.26.77.84 1.23 1.91 1.23 3.23 0 4.64-2.8 5.65-5.48 5.95.44.38.83 1.12.83 2.26v3.35c0 .31.21.68.82.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/carina.vidaa" target="_blank" title="Instagram" style="color:var(--muted);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Karyna Zakabluk — Crafted with ❤️ and clean code
+  </footer>
+
+  <script>
+    // reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const onScroll = () => {
+      for (const el of reveals) {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50) el.classList.add('visible');
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // fake form submit
+    document.getElementById('contactForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const btn = e.target.querySelector('.send-btn span');
+      btn.textContent = 'Sent ✅';
+      document.getElementById('formStatus').textContent = 'Your message has been sent (demo mode)';
+      setTimeout(()=>btn.textContent='Send Message',3000);
+    });
+  </script>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+  
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // відміняє стандартну відправку форми
+  
+      // тут можна додати реальний fetch або AJAX, якщо є сервер
+      // поки просто показуємо повідомлення
+      formStatus.textContent = "Your message has been sent! ✅";
+      formStatus.style.color = "#00c4b4";
+  
+      // очищаємо форму після відправки
+      form.reset();
+    });
+  </script>
+  
+</body>
+</html>
